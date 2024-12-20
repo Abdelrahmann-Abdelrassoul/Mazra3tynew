@@ -41,9 +41,8 @@ const App = () => {
             </div>
         
           </div>
-          <hr />
+          
           <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
-          <ToastContainer />
             <Footer />
             </div>
         </>
