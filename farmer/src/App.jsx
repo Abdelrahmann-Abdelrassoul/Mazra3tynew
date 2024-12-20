@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
+import Footer from './components/Footer'
 import { Routes, Route } from 'react-router-dom'
 import Add from './pages/Add'
 import List from './pages/List'
@@ -36,8 +37,15 @@ const App = () => {
                 <Route path='/list' element={<List token={token} />} />
                 <Route path='/orders' element={<Orders token={token} />} />
               </Routes>
+              
             </div>
+        
           </div>
+          <hr />
+          <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+          <ToastContainer />
+            <Footer />
+            </div>
         </>
       }
     </div>
