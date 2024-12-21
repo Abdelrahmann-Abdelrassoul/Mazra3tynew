@@ -44,33 +44,18 @@ const Login = () => {
           toast.error(response.data.message);
         }
       }
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error);
       toast.error(error.message);
     }
   };
 
-  const handleGoogleSignUp = async () => {
-    try {
-      // Open Google OAuth endpoint
-      const response = await axios.get(backendUrl + '/api/user/google/redirect', { withCredentials: true });
-      
-      // Redirect the user to the Google OAuth page
-      window.location.href = response.data.url;
-
-    }
-    catch (error) {
-      console.error('Google Sign-In Error:', error);
-      toast.error('Failed to sign in with Google.');
-    }
+  const handleGoogleSignUp = () => {
+    toast.info('Google Sign Up is not implemented yet.');
   };
-  
-
-  
 
   const handleFacebookSignUp = () => {
-    toast.info('Sign up with facebook has not been implemented yet.');
+    toast.info('Facebook Sign Up is not implemented yet.');
   };
 
   useEffect(() => {
