@@ -17,7 +17,8 @@ import menu_icon from './menu_icon.png'
 import about_img from './about_img.png'
 import contact_img from './contact_img.png'
 import cross_icon from './cross_icon.png'
-
+import google_icon from './google_icon.png'
+import facebook_icon from './facebook_icon.jpg'
 export const assets = {
     logo,
     leaf,
@@ -37,5 +38,7 @@ export const assets = {
     menu_icon,
     about_img,
     contact_img,
-    cross_icon
+    cross_icon,
+    google_icon,
+    facebook_icon
 }
