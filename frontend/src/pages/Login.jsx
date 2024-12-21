@@ -20,37 +20,57 @@ const Login = () => {
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem('token', response.data.token);
-        } else {
+        }
+        else {
           toast.error(response.data.message);
         }
-      } else if (currentState === 'Login') {
+      }
+      else if (currentState === 'Login') {
         const response = await axios.post(backendUrl + '/api/user/login', { email, password });
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem('token', response.data.token);
-        } else {
-          toast.error(response.data.message);
         }
-      } else if (currentState === 'Forgot Password') {
-        const response = await axios.post(backendUrl + '/api/user/forgot-password', { email });
-        if (response.data.success) {
-          toast.success('Password reset email sent!');
-        } else {
+        else {
           toast.error(response.data.message);
         }
       }
-    } catch (error) {
+      else if (currentState === 'Forgot Password') {
+        const response = await axios.post(backendUrl + '/api/user/forgot-password', { email });
+        if (response.data.success) {
+          toast.success('Password reset email sent!');
+        }
+        else {
+          toast.error(response.data.message);
+        }
+      }
+    }
+    catch (error) {
       console.log(error);
       toast.error(error.message);
     }
   };
 
-  const handleGoogleSignUp = () => {
-    toast.info('Google Sign Up is not implemented yet.');
+  const handleGoogleSignUp = async () => {
+    try {
+      // Open Google OAuth endpoint
+      const response = await axios.get(backendUrl + '/api/user/google/redirect', { withCredentials: true });
+      
+      // Redirect the user to the Google OAuth page
+      window.location.href = response.data.url;
+
+    }
+    catch (error) {
+      console.error('Google Sign-In Error:', error);
+      toast.error('Failed to sign in with Google.');
+    }
   };
+  
+
+  
 
   const handleFacebookSignUp = () => {
-    toast.info('Facebook Sign Up is not implemented yet.');
+    toast.info('Sign up with facebook has not been implemented yet.');
   };
 
   useEffect(() => {
@@ -98,11 +118,7 @@ const Login = () => {
             <img className="h-5 w-5" src={assets.google_icon} alt="Google Icon" />
              {currentState === 'Login' ? 'Login' : 'Sign Up'} with Google
           </button>
-          <button
-            type="button"
-            onClick={handleFacebookSignUp}
-            className="flex items-center text-black font-light px-8 py-2 mt-2 gap-2 border-2 border-black rounded-md shadow-lg"
-          >
+          <button type="button" onClick={handleFacebookSignUp} className="flex items-center text-black font-light px-8 py-2 mt-2 gap-2 border-2 border-black rounded-md shadow-lg">
             <img src={assets.facebook_icon} alt="Facebook Icon" className="h-5 w-5" />
              {currentState === 'Login' ? 'Login' : 'Sign Up'} with Facebook
           </button>

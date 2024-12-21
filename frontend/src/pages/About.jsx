@@ -13,10 +13,10 @@ const About = () => {
       <div className='my-10 flex flex-col md:flex-row gap-16'>
           <img className='w-full md:max-w-[450px]' src={assets.about_img} alt="" />
           <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-600'>
-              <p>Forever was born out of a passion for innovation and a desire to revolutionize the way people shop online. Our journey began with a simple idea: to provide a platform where customers can easily discover, explore, and purchase a wide range of products from the comfort of their homes.</p>
-              <p>Since our inception, we've worked tirelessly to curate a diverse selection of high-quality products that cater to every taste and preference. From fashion and beauty to electronics and home essentials, we offer an extensive collection sourced from trusted brands and suppliers.</p>
+              <p>Mazra3ty was created to bridge the gap between farmers and customers, enabling a direct connection that eliminates the need for middlemen. Our platform empowers farmers to sell their fresh produce and products directly to customers, ensuring fair pricing and transparency.</p>
+              <p>Since its launch, Mazra3ty has been committed to building a community-driven marketplace that prioritizes trust, quality, and sustainability. We offer a diverse range of farm-fresh products that cater to the needs of both farmers and customers, fostering a mutually beneficial relationship.</p>
               <b className='text-gray-800'>Our Mission</b>
-              <p>Our mission at Forever is to empower customers with choice, convenience, and confidence. We're dedicated to providing a seamless shopping experience that exceeds expectations, from browsing and ordering to delivery and beyond.</p>
+              <p>Our mission at Mazra3ty is to create a seamless and sustainable platform where farmers can thrive and customers can access fresh, high-quality produce. We aim to revolutionize the agricultural trade by promoting fairness, transparency, and convenience.</p>
           </div>
       </div>
 
@@ -26,16 +26,16 @@ const About = () => {
 
       <div className='flex flex-col md:flex-row text-sm mb-20'>
           <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
-            <b>Quality Assurance:</b>
-            <p className=' text-gray-600'>We meticulously select and vet each product to ensure it meets our stringent quality standards.</p>
+            <b>Fresh and Authentic Products:</b>
+            <p className=' text-gray-600'>We ensure that all products listed on Mazra3ty are sourced directly from farmers, guaranteeing freshness and authenticity.</p>
           </div>
           <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
-            <b>Convenience:</b>
-            <p className=' text-gray-600'>With our user-friendly interface and hassle-free ordering process, shopping has never been easier.</p>
+            <b>Empowering Local Farmers:</b>
+            <p className=' text-gray-600'>By connecting farmers directly to customers, we help them earn fair prices for their hard work and dedication.</p>
           </div>
           <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
-            <b>Exceptional Customer Service:</b>
-            <p className=' text-gray-600'>Our team of dedicated professionals is here to assist you the way, ensuring your satisfaction is our top priority.</p>
+            <b>Convenience and Transparency:</b>
+            <p className=' text-gray-600'>Our easy-to-use platform ensures a hassle-free experience for both farmers and customers, with complete transparency in pricing and transactions.</p>
           </div>
       </div>      
     </div>
