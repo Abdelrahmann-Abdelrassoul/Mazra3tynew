@@ -34,15 +34,14 @@ const PlaceOrder = () => {
             let orderItems = []
 
             for (const items in cartItems) {
-                for (const item in cartItems[items]) {
-                    if (cartItems[items][item] > 0) {
+                    if (cartItems[items] > 0) {
                         const itemInfo = structuredClone(products.find(product => product._id === items))
                         if (itemInfo) {
-                            itemInfo.quantity = cartItems[items][item]
+                            itemInfo.quantity = cartItems[items]
                             orderItems.push(itemInfo)
                         }
                     }
-                }
+                
             }
 
             let orderData = {
@@ -51,7 +50,6 @@ const PlaceOrder = () => {
                 amount: getCartAmount() + delivery_fee
             }
             
-
                     const response = await axios.post(backendUrl + '/api/order/place',orderData,{headers:{token}})
                     if (response.data.success) {
                         setCartItems({})
