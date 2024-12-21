@@ -32,3 +32,37 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => console.log('Server started on PORT: ' + port));
+
+app.post('/forgot-password', (req, res) => {
+  const { email } = req.body;
+  UserModel.findOne({ email: email })
+      .then(user => {
+          if (!user) {
+              return res.send({ status: "User not existed" });
+          }
+          const token = jwt.sign({ id: user._id }, "jwt_secret_key", { expiresIn: "1d" })
+          var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'youremail@gmail.com',
+              pass: 'yourpassword'
+            }
+          });
+          
+          var mailOptions = {
+            from: 'youremail@gmail.com',
+            to: 'myfriend@yahoo.com',
+            subject: 'Reset Passoword',
+            text: 'That was easy!'
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              return res.send({status:"Succes"} )
+            }
+          });
+      });
+});
+
